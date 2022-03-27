@@ -3,10 +3,7 @@ package com.example.converttemp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
@@ -71,9 +68,10 @@ fun MyApp() {
 
         label = { Text(text = "Digite o valor em °C")}
         )
-
+        Spacer(modifier = Modifier.height(8.dp))
         MostrarValorF(valorC)
 
+        Spacer(modifier = Modifier.height(24.dp))
         OutlinedTextField(
             //value = "${valor}",
             value = valorF.toString(),
@@ -92,7 +90,7 @@ fun MyApp() {
 
             label = { Text(text = "Digite o valor em °F")}
         )
-
+        Spacer(modifier = Modifier.height(8.dp))
         MostrarValorC(valorF)
 
     }
@@ -101,15 +99,11 @@ fun MyApp() {
 
 @Composable
 fun MostrarValorF(valor: Int) {
-    //val df = DecimalFormat("0.00")
-    //Text(text = "${df.format(valor)}", style = MaterialTheme.typography.subtitle1)
     Text(text = "${valor * 1.8 + 32} °F", style = MaterialTheme.typography.subtitle1)
 }
 
 @Composable
 fun MostrarValorC(valor: Int) {
-    //val df = DecimalFormat("0.00")
-    //Text(text = "${df.format(valor)}", style = MaterialTheme.typography.subtitle1)
     Text(text = "${(valor -32) / 1.8} °C", style = MaterialTheme.typography.subtitle1)
 }
 
